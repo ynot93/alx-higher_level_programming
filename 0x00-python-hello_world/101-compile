@@ -14,6 +14,7 @@ output = f"{python_file}c"
 
 try:
     py_compile.compile(python_file, cfile=output, optimize=-1)
+    print(f"Compiling {python_file} ...")
 except Exception as e:
     print(f"Compilation failed: {str(e)}")
     sys.exit(1)
