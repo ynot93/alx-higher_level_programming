@@ -2,9 +2,9 @@
 import sys
 
 if __name__ == "__main__":
-    
+
     num = len(sys.argv) - 1
-    
+
     if num == 1:
         print("{} argument:".format(num))
     elif num == 0:
