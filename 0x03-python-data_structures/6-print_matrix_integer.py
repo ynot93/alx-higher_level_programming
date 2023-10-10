@@ -8,5 +8,4 @@ def print_matrix_integer(matrix=[[]]):
         row = ""
         for num in item:
             row += "{:d} ".format(num)
-
-    print(row.strip())
+        print(row.strip())
