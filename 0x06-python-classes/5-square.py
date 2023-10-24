@@ -59,7 +59,7 @@ class Square:
         """Print the square using #.
 
         If size = 0, print an empty line.
-        
+
         """
         if self.__size == 0:
             print()
