@@ -10,7 +10,7 @@ class Square:
         position (tuple): Position of the square.
 
     """
-    def __init__(self, size=0, position=(0,0)):
+    def __init__(self, size=0, position=(0, 0)):
         """Initializes a square with an optional size
 
         Args:
