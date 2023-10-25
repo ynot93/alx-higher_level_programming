@@ -42,7 +42,7 @@ class Node:
     def next_node(self, value):
         """Set the next node in the linked list"""
         if value is not None and not isinstance(value, Node):
-            raise TypeError("next_node must be a node object")
+            raise TypeError("next_node must be a Node object")
         self._next_node = value
 
 
