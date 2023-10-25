@@ -27,7 +27,7 @@ class Node:
 
         Args:
             value: Value of data to set.
-        
+
         """
         if not isinstance(value, int):
             raise TypeError("data must be an integer")
