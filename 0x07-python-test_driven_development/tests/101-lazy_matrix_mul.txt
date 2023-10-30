@@ -1,0 +1,8 @@
+Doctests:
+
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+>>> m_a = [[1, 2], [3, 4]]
+>>> m_b = [[1, 2], [3, 4]]
+>>> lazy_matrix_mul(m_a, m_b)
+[[7, 10], [15, 22]]
