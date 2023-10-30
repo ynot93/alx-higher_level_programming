@@ -27,7 +27,8 @@ def is_safe(board, row, col, N):
 def solve_nqueens(N):
     def solve(board, row):
         if row == N:
-            solutions.append([board[i][:] for i in range(N)])
+            solution = [(i, board[i].index(1)) for i in range(N)]
+            solutions.append(solution)
             return
 
         for col in range(N):
