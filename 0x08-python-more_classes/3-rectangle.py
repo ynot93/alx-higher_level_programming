@@ -97,4 +97,5 @@ class Rectangle:
         Returns offcial representation of rectangle.
 
         """
-        return "<3-rectangle.{} object at {}>".format(self.__class__.__name__, hex(id(self)))
+        return "<3-rectangle.{} object at {}>".format\
+                (self.__class__.__name__, hex(id(self)))
