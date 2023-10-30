@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module defines an empty Recyangle class.
+This module defines an empty Rectangle class.
 
 """
 
@@ -48,7 +48,7 @@ class Rectangle:
         """
         return self.__height
 
-    @height.settter
+    @height.setter
     def height(self, value):
         """
         Setter function to set value of the height.
