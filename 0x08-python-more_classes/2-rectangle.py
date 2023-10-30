@@ -12,7 +12,7 @@ class Rectangle:
     """
     def __init__(self, width=0, height=0):
         """
-        Initialize object with width attribute.
+        Initialize object with with attribute.
 
         """
         self.width = width
@@ -61,3 +61,17 @@ class Rectangle:
             raise ValueError("height must be >= 0")
 
         self.__height = value
+
+    def area(self):
+        """
+        Calculates the area of the rectangle.
+
+        """
+        return self.__width * self.height
+
+    def perimeter(self):
+        """
+        Calculates the perimeter of the rectangle.
+
+        """
+        return 2 * (self.__width + self.__height)
