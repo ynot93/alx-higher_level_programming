@@ -5,6 +5,7 @@ This module solves the N-Queens problem using backtracking.
 """
 import sys
 
+
 def is_safe(board, row, col, N):
     """
     Check for queen in same column or diagonals.
@@ -23,6 +24,7 @@ def is_safe(board, row, col, N):
             return False
 
     return True
+
 
 def solve_nqueens(N):
     def solve(board, row):
@@ -47,6 +49,7 @@ def solve_nqueens(N):
 
     for solution in solutions:
         print(solution)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
