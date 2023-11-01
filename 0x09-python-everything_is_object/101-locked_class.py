@@ -3,6 +3,8 @@
 Defines class  with no class or object attribute.
 
 """
+
+
 class LockedClass:
     """
     Prevents the user from creating new instance attributes
