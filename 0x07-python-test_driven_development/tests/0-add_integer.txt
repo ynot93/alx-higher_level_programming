@@ -15,6 +15,15 @@ Doctests:
 >>> add_integer(1, 2.3)
 3
 
+>>> add_integer(float('inf'), 10)
+inf
+
+>>> add_integer(float('-inf'), 10)
+-inf
+
+>>> add_integer(float('nan'), 10)
+nan
+
 >>> add_integer(4, "School")
 Traceback (most recent call last):
     ...
