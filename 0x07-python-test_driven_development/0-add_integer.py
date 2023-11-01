@@ -6,6 +6,7 @@ typecast to integers before the operation is performed.
 
 """
 
+
 def add_integer(a, b=98):
     """
     Takes arguments 'a' and 'b' which must be integers or floats and
@@ -27,4 +28,4 @@ def add_integer(a, b=98):
     elif not isinstance(b, (int, float)):
         raise TypeError("b must be an integer")
     else:
-        return int(a) + int (b)
+        return int(a) + int(b)
