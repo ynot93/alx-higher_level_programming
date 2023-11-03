@@ -48,3 +48,21 @@ TypeError: text must be a string
 Traceback (most recent call last):
     ...
 TypeError: text must be a string
+
+>>> text_indentation(Holberton School)
+Traceback (most recent call last):
+    ...
+SyntaxError: invalid syntax
+
+>>> text_indentation(Holberton.School)
+Traceback (most recent call last):
+    ...
+NameError: name 'Holberton' is not defined
+
+>>> text_indentation("Holberton.School")
+Holberton.
+<BLANKLINE>
+School
+
+>>> text_indentation("Holberton School")
+Holberton School
