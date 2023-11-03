@@ -19,11 +19,18 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    sentences = text.split('.')
-    for sentence in sentences:
-        questions = sentence.split('?')
-        for item in questions:
-            colons = item.split(':')
-            for colon in colons:
-                print(colon.strip())
-            print()
+    sentences = text.strip()
+    separators = [".", "?", ":"]
+    result = []
+
+    line = ""
+    for char in sentences:
+        line += char
+        if char in separators:
+            result.append(line.strip() + "\n\n")
+            line = ""
+
+    if line:
+        result.append(line.strip())
+
+    print("".join(result))
