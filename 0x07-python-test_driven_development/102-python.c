@@ -1,30 +1,35 @@
 #define PY_SSIZE_T_CLEAN
-#include "Python.h"
+#include <Python.h>
 
+/**
+ * print_python_string - Prints information about Python strings.
+ * @p: A PyObject string.
+ *
+ * Return: Nothing.
+ */
 void print_python_string(PyObject *p)
 {
-	if (PyUnicode_Check(p))
+	long int l;
+
+	fflush(stdout);
+
+	printf("[.] string object info\n");
+
+	if (strcmp(p->ob_type->tp_name, "str") != 0)
 	{
-		Py_UCS4 *wstr = PyUnicode_AS_UCS4(p);
-		Py_ssize_t length = PyUnicode_GET_LENGTH(p);
+		printf("  [ERROR] Invalid String Object\n");
+		return;
+	}
+	l = ((PyASCIIObject *)(p))->l;
 
-		printf("[.] string object info\n");
-
-		if (PyCompactUnicode_Check(p))
-			printf("  type: compact unicode object\n");
-		else if (PyASCII_WCHAR_COMPACT_ASCII_Check(p))
-			printf("  type: compact ascii\n");
-		else
-		{
-			printf("  [ERROR] Invalid String Object\n")
-				return;
-		}
-
-		printf("  length: %ld\n", length);
-		printf("  value: %ls\n", wstr);
+	if (PyUnicode_IS_COMPACT_ASCII(p))
+	{
+		printf("  type: compact unicode object\n");
 	}
 	else
 	{
-		printf("  [ERROR] Invalid String Object\n");
+		printf("  type: compact ascii\n");
 	}
+	printf("  length: %ld\n", length);
+	printf("  value: %ls\n", PyUnicode_AsWideCharString(p, &length));
 }
