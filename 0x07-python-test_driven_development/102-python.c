@@ -31,7 +31,11 @@ void print_python_string(PyObject *p)
 	}
 	else if (PyBytes_Check(p))
 	{
-		printf("  [ERROR] Invalid String Object\n");
+		printf("  type: compact bytes object\n");
+		length = PyBytes_GET_SIZE(p);
+		printf("  length: %ld\n", length);
+		value = PyBytes_AsString(p);
+		printf("  value: %s\n", value);
 	}
 	else
 	{
