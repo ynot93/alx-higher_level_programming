@@ -11,6 +11,7 @@ void print_python_string(PyObject *p)
 {
 	Py_ssize_t length;
 	const wchar_t *value = PyUnicode_AsUnicode(p);
+	const value_s;
 
 	printf("[.] string object info\n");
 
@@ -34,8 +35,8 @@ void print_python_string(PyObject *p)
 		printf("  type: compact bytes object\n");
 		length = PyBytes_GET_SIZE(p);
 		printf("  length: %ld\n", length);
-		value = PyBytes_AsString(p);
-		printf("  value: %s\n", value);
+		value_s = PyBytes_AsString(p);
+		printf("  value: %s\n", value_s);
 	}
 	else
 	{
