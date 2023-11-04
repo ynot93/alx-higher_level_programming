@@ -29,6 +29,10 @@ void print_python_string(PyObject *p)
 		printf("  length: %ld\n", length);
 		printf("  value: %ls\n", value);
 	}
+	else if (PyBytes_Check(p))
+	{
+		printf("  [ERROR] Invalid String Object\n");
+	}
 	else
 	{
 		printf("  [ERROR] Invalid String Object\n");
