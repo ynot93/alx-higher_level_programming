@@ -11,7 +11,7 @@ void print_python_string(PyObject *p)
 {
 	Py_ssize_t length;
 	const wchar_t *value = PyUnicode_AsUnicode(p);
-	const value_s;
+	char value_s;
 
 	printf("[.] string object info\n");
 
