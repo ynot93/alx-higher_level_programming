@@ -3,6 +3,8 @@
 This module deals with object's attributes.
 
 """
+
+
 def add_attribute(obj, att, value):
     """
     If possible, adds a new attribute to an object.
