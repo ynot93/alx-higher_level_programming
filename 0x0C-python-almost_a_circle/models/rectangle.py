@@ -122,6 +122,15 @@ class Rectangle(Base):
         for _ in range(self.height):
             print(" " * self.x + "#" * self.width)
 
+    def update(self, *args):
+        """
+        Updates atrributes with variable arguments.
+
+        """
+        argmnts = ['id', 'width', 'height', 'x', 'y']
+        for i in range(min(len(args), len(argmnts))):
+            setattr(self, argmnts[i], args[i])
+
     def __str__(self):
         """
         Return formatted string of rectangle instance.
