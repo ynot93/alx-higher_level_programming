@@ -4,6 +4,7 @@ This module deals with the Base class which will be imported
 by all other classes in this project.
 
 """
+import json
 
 
 class Base:
@@ -23,3 +24,31 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """
+        Converts a list of dictionaries to JSON string representation.
+
+        """
+        if not list_dictionaries or len(list_dictionaries) == 0:
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        Writes JSON string representation to a file.
+
+        """
+        if list_objs is None:
+            list_objs = []
+
+        file_name = "{}.json".format(cls.__name__)
+        list_dicts = [item.to_dictionary() for item in list_objs]
+
+        json_str = cls.to_json_string(list_dicts)
+
+        with open(file_name, 'w') as file:
+            file.write(json_str)
