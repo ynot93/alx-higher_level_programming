@@ -56,7 +56,7 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """
-        Returns list of the JSon string representation.
+        Returns list of the JSON string representation.
 
         """
         if json_string is None:
@@ -70,12 +70,42 @@ class Base:
 
         """
         if cls.__name__ == "Square":
-            inst = Square(5)
+            inst = cls(5)
         elif cls.__name__ == "Rectangle":
-            inst = Rectangle(3, 2)
+            inst = cls(3, 2)
 
         inst.update(**dictionary)
 
         return inst
 
+    @classmethod
+    def load_from_file(cls):
+        """
+        Returns a list of instances from a JSON file.
 
+        """
+        file_name = "{}.json".format(cls.__name__)
+
+        try:
+            with open(file_name, 'r') as file:
+                json_str = file.read()
+                list_data = json.loads(json_str)
+                return [cls.create(**attr) for attr in list_data]
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes in CSV Format.
+
+        """
+        file_name = "{}.csv".format(cls.__name__)
+
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserializes in CSV Format.
+
+        """
