@@ -137,6 +137,19 @@ class Rectangle(Base):
                 if key in argmnts:
                     setattr(self, key, value)
 
+    def to_dictionary(self):
+        """
+        Returns dictionary representation of Rectangle.
+
+        """
+        return {
+                "id": self.id,
+                "width": self.width,
+                "height": self.height,
+                "x": self.x,
+                "y": self.y
+        }
+
     def __str__(self):
         """
         Return formatted string of rectangle instance.
