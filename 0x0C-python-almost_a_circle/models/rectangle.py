@@ -155,4 +155,5 @@ class Rectangle(Base):
         Return formatted string of rectangle instance.
 
         """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y}\
+                - {self.width}/{self.height}"

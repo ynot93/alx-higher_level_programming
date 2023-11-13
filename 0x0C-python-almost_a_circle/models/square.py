@@ -38,7 +38,7 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """
         Assigns attributes to variable (key-word) arguments.
-        
+
         """
         argmnts = ['id', 'size', 'x', 'y']
 
