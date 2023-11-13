@@ -5,6 +5,8 @@ by all other classes in this project.
 
 """
 import json
+import csv
+import turtle
 
 
 class Base:
@@ -101,7 +103,13 @@ class Base:
 
         """
         file_name = "{}.csv".format(cls.__name__)
-
+        with open(file_name, mode='w', newline='') as file:
+            written = csv.writer(file)
+            for item in list_objs:
+                if cls.__name__ == "Rectangle":
+                    written.writerow([item.id, item.width, item.height, item.x, item.y])
+                if cls.__name__ == "Square":
+                    written.writerow([item.id, item.size, item.x, item.y])
 
     @classmethod
     def load_from_file_csv(cls):
@@ -109,3 +117,55 @@ class Base:
         Deserializes in CSV Format.
 
         """
+        file_name = "{}.csv".format(cls.__name__)
+        list_objs = []
+
+        try:
+            with open(file_name, mode='r') as file:
+                read = csv.reader(file)
+                for row in read:
+                    if cls.__name__ == "Rectangle":
+                        obj = cls(int(row[1]), int(row[2]), int(row[3]), int(row[4]), int(row[0]))
+                    elif cls.__name__ == "Square":
+                        obj = cls(int(row[1]), int(row[2]), int(row[3]), int(row[0]))
+                    list_objs.append(obj)
+            return list_objs
+        except FileNotFoundError:
+            return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        Opens a window and draws all the Rectangles and Squares.
+
+        """
+        window = turtle.Screen()
+        window.title("These are the drawn rectangles or squares")
+        t = turtle.Turtle()
+        t.speed(1)
+
+        for rectangle in list_rectangles:
+            t.penup()
+            t.goto(rectangle.x, rectangle.y)
+            t.pendown()
+            t.color("yellow")
+            t.begin_fill()
+            for _ in range(2):
+                t.forward(rectangle.width)
+                t.left(90)
+                t.forward(rectangle.height)
+                t.left(90)
+            t.end_fill()
+
+        for square in list_squares:
+            t.penup()
+            t.goto(square.x, square.y)
+            t.pendown()
+            t.color("blue")
+            t.begin_fill()
+            for _ in range(4):
+                t.forward(square.size)
+                t.left(90)
+            t.end_fill()
+
+        turtle.done()
