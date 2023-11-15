@@ -35,6 +35,19 @@ class TestBase(unittest.TestCase):
         json_str = Base.to_json_string(data)
         self.assertEqual(json_str, '[{"id": 1, "name": "Item 1"}, {"id": 2, "name": "Item 2"}]')
 
+    def test_from_json_string_none(self):
+        obj_json = Base.from_json_string(None)
+        self.assertEqual(obj_json, [])
+
+    def test_from_json_string_empty_list(self):
+        obj_json = Base.from_json_string('[]')
+        self.assertEqual(obj_json, [])
+
+    def test_from_json_string_data(self):
+        data = '[{'id': 1, 'name': 'Item 1'}, {'id': 2, 'name': 'Item 2'}]'
+        obj_json = Base.from_json_string(data)
+        self.assertEqual(obj_json, [{'id': 1, 'name': 'Item 1'}, {'id': 2, 'name': 'Item 2'}])
+
 
 if __name__ == "__main__":
     unittest.main()
