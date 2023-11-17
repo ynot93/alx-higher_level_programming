@@ -91,9 +91,9 @@ class Base:
         try:
             with open(file_name, 'r') as file:
                 json_str = file.read()
-                list_data = json.loads(json_str)
+                list_data = Base.from_json_string(json_str)
                 return [cls.create(**attr) for attr in list_data]
-        except FileNotFoundError:
+        except IOError:
             return []
 
     @classmethod
