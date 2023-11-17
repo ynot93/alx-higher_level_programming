@@ -98,6 +98,10 @@ class TestRectangle(unittest.TestCase):
         obj = Rectangle(1, 2, 3, 4)
         obj.display()
 
+    def test_to_dictionary(self):
+        obj = Rectangle(5, 6, 7, 8, 9)
+        self.assertEqual(obj.to_dictionary(), {'id': 9, 'width': 5, 'height': 6, 'x': 7, 'y': 8})
+
 
 if __name__ == "__main__":
     unittest.main()
