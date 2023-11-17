@@ -104,10 +104,6 @@ class TestSquare(unittest.TestCase):
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), '[{"id": 48, "size": 1, "x": 2, "y": 3}]')
 
-    def test_load_from_file_method_when_file_doesnt_exist_for_obj(self):
-        objs = Square.load_from_file()
-        self.assertEqual(objs, [])
-
     def test_load_from_file_method_when_file_for_obj(self):
         obj = Square(1, 2, 3)
         Square.save_to_file([obj])

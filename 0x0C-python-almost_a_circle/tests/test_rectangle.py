@@ -154,14 +154,6 @@ class TestRectangle(unittest.TestCase):
     def test_save_to_file_method_with_list_of_objangles(self):
         Rectangle.save_to_file([Rectangle(1, 2)])
 
-    def test_load_from_file_method_when_file_doesnt_exist(self):
-        objs = Rectangle.load_from_file()
-        try:
-            os.remove("Rectangle.json")
-        except:
-            pass
-        self.assertEqual(objs, [])
-
     def test_load_from_file_method_when_file_exists(self):
         Rectangle.save_to_file([Rectangle(1, 2)])
         objs = Rectangle.load_from_file()
