@@ -13,7 +13,7 @@ class Rectangle(Base):
     following attributes.
 
     """
-    def __init__(self, width, height, x=0, y=0, id=None, *args):
+    def __init__(self, width, height, x=0, y=0, id=None):
         """
         Constructor that initializes a rectangle object with the attributes
         width, height, x, y and id.
@@ -24,9 +24,6 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-
-        if args:
-            raise TypeError("Unexpected positional arguments")
 
     @property
     def width(self):
@@ -158,7 +155,5 @@ class Rectangle(Base):
         Return formatted string of rectangle instance.
 
         """
-        return (
-                f"[Rectangle] ({self.id}) "
-                f"{self.x}/{self.y} - {self.width}/{self.height}"
-        )
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y}\
+                - {self.width}/{self.height}"
