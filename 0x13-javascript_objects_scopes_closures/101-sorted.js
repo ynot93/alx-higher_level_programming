@@ -2,7 +2,7 @@
 
 const dict = require('./101-data').dict;
 
-newDict = {};
+const newDict = {};
 
 for (const userId in dict) {
   const occurences = dict[userId];

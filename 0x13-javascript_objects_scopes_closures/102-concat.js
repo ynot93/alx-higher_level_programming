@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const fs = require('fs')
+const fs = require('fs');
 
 if (process.argv.length !== 5) {
   console.log('Usage: ./102-concat.js sourceFile1 sourceFile2 destinationFile');
