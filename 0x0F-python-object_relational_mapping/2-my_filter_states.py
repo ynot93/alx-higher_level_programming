@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Display all values in states where name matches the argument"""
+"""
+Display all values in states where name matches the argument
+
+"""
 
 import MySQLdb
 import sys
@@ -20,7 +23,8 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    query = "SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC"
+    query = "SELECT * FROM states WHERE name LIKE BINARY '%{}%' \
+            ORDER BY id ASC".format(state_name)
     cursor.execute(query, ('%' + state_name + '%',))
 
     rows = cursor.fetchall()
