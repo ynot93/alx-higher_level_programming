@@ -5,7 +5,7 @@ import sys
 
 if __name__ == "__main__":
 
-    username, password, database = sys.argv[1:]
+    username, password, database, state_name = sys.argv[1:]
 
     db_config = {
             'host': 'localhost',
@@ -19,7 +19,8 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    cursor.execute(query, (state_name,))
 
     rows = cursor.fetchall()
 
