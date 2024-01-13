@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+"""Lists all states from hbtn_0e_0_usa"""
+
 import MySQLdb
 import sys
-
 
 if __name__ == "__main__":
 

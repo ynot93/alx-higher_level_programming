@@ -1,7 +1,12 @@
 #!/usr/bin/python3
+"""
+Lists all states in the database hbtn_0e_0_usa whose name
+starts with N
+
+"""
+
 import MySQLdb
 import sys
-
 
 if __name__ == "__main__":
 

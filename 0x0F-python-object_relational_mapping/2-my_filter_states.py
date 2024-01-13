@@ -1,7 +1,8 @@
 #!/usr/bin/python3
+"""Display all valuues in states where name matches the argument"""
+
 import MySQLdb
 import sys
-
 
 if __name__ == "__main__":
 
