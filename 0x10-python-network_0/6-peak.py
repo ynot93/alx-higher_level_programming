@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ Determines the peak in a list of numbers """
+
+
 def find_peak(list_of_integers):
     """
     Uses binary search to find peak.
