@@ -20,7 +20,6 @@ if __name__ == '__main__':
         response.raise_for_status()
 
         result = response.json()
-        print(result)
         print(result.get('id'))
 
     except requests.exceptions.HTTPError:
