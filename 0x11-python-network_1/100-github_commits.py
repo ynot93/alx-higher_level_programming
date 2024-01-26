@@ -12,16 +12,11 @@ if __name__ == '__main__':
 
     url = f"https://api.github.com/repos/{owner}/{repo}/commits"
 
-    try:
-        response = requests.get(url)
-        response.raise_for_status()
+    response = requests.get(url)
 
-        result = response.json()[:10]
+    result = response.json()[:10]
 
-        for commit in result:
-            sha = commit.get('sha')
-            name = commit.get('commit').get('author').get('name')
-            print(f"{sha}:  {name}")
-
-    except requests.exceptions.HTTPError:
-        print("None")
+    for commit in result:
+        sha = commit.get('sha')
+        name = commit.get('commit').get('author').get('name')
+        print(f"{sha}:  {name}")
