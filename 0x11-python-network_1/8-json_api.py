@@ -27,5 +27,5 @@ if __name__ == '__main__':
             print(f"[{result.get('id')}] {result.get('name')}")
         else:
             print("No result")
-    except requests.exceptions.HTTPError:
+    except ValueError:
         print("Not a valid JSON")

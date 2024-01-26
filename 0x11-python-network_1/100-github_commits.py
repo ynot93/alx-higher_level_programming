@@ -19,4 +19,4 @@ if __name__ == '__main__':
     for commit in result:
         sha = commit.get('sha')
         name = commit.get('commit').get('author').get('name')
-        print(f"{sha}:  {name}")
+        print(f"{sha}: {name}")
