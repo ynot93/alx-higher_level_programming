@@ -23,9 +23,9 @@ if __name__ == '__main__':
 
         result = response.json()
 
-        if result:
+        if result and 'id' in result and 'name' in result:
             print(f"[{result.get('id')}] {result.get('name')}")
         else:
             print("No result")
     except requests.exceptions.HTTPError:
-            print("Not a valid JSON")
+        print("Not a valid JSON")
