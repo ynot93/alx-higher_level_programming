@@ -3,6 +3,7 @@
 const request = require('request');
 
 const url = process.argv[2];
+const characterId = 18;
 
 request.get(url, (err, response, body) => {
   if (err) {
@@ -12,7 +13,7 @@ request.get(url, (err, response, body) => {
   const allFilms = JSON.parse(body).results;
 
   const wedgeFilms = allFilms.filter(film =>
-    film.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')
+    film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
   );
 
   console.log(wedgeFilms.length);
