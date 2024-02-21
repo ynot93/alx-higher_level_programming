@@ -3,8 +3,8 @@
 const request = require('request');
 
 const url = process.argv[2];
-const characterId = 18;
-const characterUrl = `https://swapi-api.alx-tools.com/api/people/${characterId}/`;
+const characterId = '18';
+let count = 0;
 
 request.get(url, (err, response, body) => {
   if (err) {
@@ -13,9 +13,12 @@ request.get(url, (err, response, body) => {
   }
   const allFilms = JSON.parse(body).results;
 
-  const wedgeFilms = allFilms.filter(film =>
-    film.characters.includes(characterUrl)
-  );
-
-  console.log(wedgeFilms.length);
+  for (const film of allFilms) {
+    for (const character of film.characters) {
+      if (character.includes(characterId)) {
+        count += 1;
+      }
+    }
+  }
+  console.log(count);
 });
