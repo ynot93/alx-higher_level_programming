@@ -1,21 +1,20 @@
-$(document).ready(function() {
-  function fetchTranslation() {
-    const languageCode = $("#language_code").val();
+$(document).ready(function () {
+  function fetchTranslation () {
+    const languageCode = $('#language_code').val();
 
-    url = "https://www.fourtonfish.com/hellosalut/hello/"
-    $.get(url, { lang: languageCode }, function(data) {
+    const url = 'https://www.fourtonfish.com/hellosalut/hello/';
+    $.get(url, { lang: languageCode }, function (data) {
       const helloTranslation = data.hello;
 
-      $("#hello").text(helloTranslation);
+      $('#hello').text(helloTranslation);
     });
   }
 
-  $("#btn_translate").click(fetchTranslation);
+  $('#btn_translate').click(fetchTranslation);
 
-  $("#language_code").keypress(function(event) {
+  $('#language_code').keypress(function (event) {
     if (event.which === 13) {
       fetchTranslation();
     }
   });
 });
-
