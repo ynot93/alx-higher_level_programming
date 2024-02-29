@@ -1,7 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Use jQuery to channge color of header element
-  var header = $("header");
+  const header = $('header');
 
-  header.css("color", "#FF0000");
+  header.css('color', '#FF0000');
 });
-
